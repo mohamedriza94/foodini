@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Recipe;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 
-
-class recipeController extends Controller
+class userController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.recipe');
+        return view('admin.dashboard.users');
     }
     
-    public function addRecipe(Request $request)
+    public function addUser(Request $request)
     {
         $validator = Validator::make($request->all(), [
             
-            'rec_id' => ['required','string','max:10','unique:recipes'],
-            'rec_price' => ['required','numeric'],
-            'rec_name' => ['required'],
-            'admin_id' => ['required'],
+            'user_id' => ['required','string','max:10','unique:users'],
+            'name' => ['required','string','max:255'],
+            'email' => ['required','email'],
+            'password' => ['required','string','min:6'],
             
         ]); //validate all the inputs
         
@@ -35,12 +35,12 @@ class recipeController extends Controller
         }
         else
         {
-            $recipes = new Recipe;        
-            $recipes->rec_id = $request->input('rec_id');
-            $recipes->rec_price = $request->input('rec_price');
-            $recipes->rec_name = $request->input('rec_name');
-            $recipes->admin_id = $request->input('admin_id');
-            $recipes->save();
+            $users = new User;        
+            $users->user_id = $request->input('user_id');
+            $users->name = $request->input('name');
+            $users->email = $request->input('email');
+            $users->password = $request->input('password');
+            $users->save();
             
             return response()->json([
                 'status'=>200
@@ -48,21 +48,21 @@ class recipeController extends Controller
         }
     }
     
-    public function getRecipe()
+    public function getUser()
     {
-        $recipes = Recipe::orderBy('id', 'DESC')->get();
+        $users = User::orderBy('id', 'DESC')->get();
         return response()->json([
-            'recipes'=>$recipes,
+            'users'=>$users,
         ]);
     }
     
-    public function updateRecipe(Request $request, $id)
+    public function updateUser(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             
-            'rec_price' => ['required','numeric'],
-            'rec_name' => ['required'],
-            'admin_id' => ['required'],
+            'name' => ['required','string','max:255'],
+            'email' => ['required','email'],
+            'password' => ['required','string','min:6'],
             
         ]); //validate all the inputs
         
@@ -75,14 +75,14 @@ class recipeController extends Controller
         }
         else
         {
-            $recipes = Recipe::find($id);;     
+            $users = User::find($id);;     
             
             if ($recipes) 
-            {
-                $recipes->rec_price = $request->input('rec_price');
-                $recipes->rec_name = $request->input('rec_name');
-                $recipes->admin_id = $request->input('admin_id');
-                $recipes->save();
+            {    
+                $users->name = $request->input('name');
+                $users->email = $request->input('email');
+                $users->password = $request->input('password');
+                $users->save();
                 
                 return response()->json([
                     'status'=>200
@@ -97,13 +97,13 @@ class recipeController extends Controller
         }
     }
     
-    public function deleteRecipe(Request $request, $id)
+    public function deleteUser(Request $request, $id)
     {
-        $recipes = Recipe::find($id);;     
+        $users = User::find($id);;     
         
-        if ($recipes) 
+        if ($users) 
         {
-            $recipes->delete();
+            $users->delete();
             
             return response()->json([
                 'status'=>200
@@ -116,15 +116,15 @@ class recipeController extends Controller
             ]);
         }
     }
-
-    public function getSingleRecipe($id)
+    
+    public function getSingleUser($id)
     {
-        $recipes = Recipe::find($id);
-        if($recipes)
+        $users = User::find($id);
+        if($users)
         {
             return response()->json([
                 'status'=>200,
-                'recipes'=>$recipes,
+                'users'=>$users,
             ]);
         }
         else
@@ -134,12 +134,12 @@ class recipeController extends Controller
             ]);
         }
     }
-
-    public function searchRecipe($input)
+    
+    public function searchUser($input)
     {
-        $recipes = Recipe::Where('rec_name','LIKE','%'.$input.'%')->orderBy('id', 'DESC')->get();
+        $users = User::Where('name','LIKE','%'.$input.'%')->orderBy('id', 'DESC')->get();
         return response()->json([
-            'recipes'=>$recipes,
+            'users'=>$users,
         ]);
     }
 }
