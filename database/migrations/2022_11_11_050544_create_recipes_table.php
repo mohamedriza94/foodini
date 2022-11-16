@@ -19,6 +19,8 @@ return new class extends Migration
             $table->text('rec_photo')->nullable();
             $table->string('rec_price');
             $table->string('rec_name');
+            $table->string('rec_category')->nullable();
+            $table->string('rec_tut')->nullable();
             $table->unsignedBigInteger('admin_id');
             $table->timestamps();
         });

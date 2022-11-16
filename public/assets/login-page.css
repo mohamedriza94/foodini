@@ -1,0 +1,89 @@
+.login-page-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--dl-color-gray-black80);
+}
+.login-page-form {
+  width: 478px;
+  height: 416px;
+  box-shadow: 5px 5px 10px 0px #2d442d;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.login-page-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.login-page-container2 {
+  flex: 0 0 auto;
+  width: 372px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.login-page-text {
+  align-self: center;
+}
+.login-page-textinput {
+  color: var(--dl-color-gray-black80);
+  width: 50%;
+  margin: var(--dl-space-space-unit);
+  padding: var(--dl-space-space-halfunit);
+  align-self: flex-start;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-gray-900);
+}
+.login-page-container3 {
+  flex: 0 0 auto;
+  width: 512px;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.login-page-text03 {
+  align-self: center;
+}
+.login-page-textinput1 {
+  color: var(--dl-color-gray-black80);
+  width: 184px;
+  align-self: center;
+  margin-top: var(--dl-space-space-unit);
+  margin-left: var(--dl-space-space-threeunits);
+  margin-right: var(--dl-space-space-unit);
+  border-radius: var(--dl-radius-radius-radius8);
+  margin-bottom: var(--dl-space-space-unit);
+  background-color: var(--dl-color-gray-900);
+}
+.login-page-button {
+  margin-top: var(--dl-space-space-fourunits);
+  border-color: var(--dl-color-gray-950);
+  background-color: var(--dl-color-gray-black);
+}
+.login-page-text06 {
+  color: var(--dl-color-gray-900);
+  align-self: flex-start;
+}
+.login-page-text09 {
+  margin-top: var(--dl-space-space-unit);
+}
+.login-page-navlink {
+  text-decoration: underline;
+}
+.login-page-text11 {
+  font-size: 10px;
+  align-self: center;
+  margin-top: var(--dl-space-space-twounits);
+}

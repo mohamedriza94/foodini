@@ -1,0 +1,58 @@
+.productcontainer-productcontainer {
+  flex: 0 0 auto;
+  width: 340px;
+  height: 448px;
+  display: flex;
+  position: relative;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  align-items: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--dl-color-pallet-green);
+}
+.productcontainer-image {
+  width: 252px;
+  height: 206px;
+  align-self: center;
+  margin-top: var(--dl-space-space-oneandhalfunits);
+  object-fit: cover;
+  border-radius: var(--dl-radius-radius-radius8);
+}
+.productcontainer-text {
+  font-size: 35px;
+  align-self: center;
+  font-style: italic;
+  margin-top: var(--dl-space-space-halfunit);
+  font-weight: 500;
+  margin-left: var(--dl-space-space-twounits);
+  margin-right: var(--dl-space-space-twounits);
+  margin-bottom: var(--dl-space-space-halfunit);
+  letter-spacing: 5px;
+}
+.productcontainer-text1 {
+  font-size: 20px;
+  font-style: normal;
+  margin-top: var(--dl-space-space-halfunit);
+  font-family: Merriweather;
+  font-weight: 700;
+  margin-left: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-halfunit);
+  letter-spacing: 2.5px;
+}
+.productcontainer-text2 {
+  font-size: 20px;
+  font-style: normal;
+  font-family: Merriweather;
+  font-weight: 700;
+  margin-left: var(--dl-space-space-halfunit);
+  margin-right: var(--dl-space-space-halfunit);
+  margin-bottom: var(--dl-space-space-halfunit);
+  letter-spacing: 2.5px;
+}
+.productcontainer-navlink {
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
+}
