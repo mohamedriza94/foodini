@@ -39,6 +39,10 @@
   data-tag="font"
   />
   <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 </head>
 <body>
   <div>
@@ -51,14 +55,14 @@
           class="navigation-links-nav navigation-links-root-class-name10"
           >
           <a
-          href="index.html"
+          href="{{ url('/') }}"
           id="navbtn_home"
           class="navigation-links-navlink"
           >
           <span>Home</span>
         </a>
         <a
-        href="productdashbaord.html"
+        href="{{ route('explore') }}"
         id="navbtn_explore"
         class="navigation-links-navlink1"
         >
@@ -103,34 +107,34 @@
   
   @endguest
   
-  
-  
-  
-  
-  
 </div>
 </header>
 </div>
+
+
+
+
+
 <div class="home-main">
   <div class="home-slide section-container">
     <div class="home-max-width max-width-container">
       <div class="home-hero">
         <div class="home-container2">
-          <h1 class="home-text Heading-1">Chicken Shawarma</h1>
+          <h1 class="home-text Heading-1" id="latestRecipeHeading"></h1>
           <div class="home-container3">
             <span class="home-text01">FROM</span>
-            <span class="home-text02">Rs. 560</span>
+            <span class="home-text02" id="latestRecipePrice"></span>
           </div>
           <div class="home-btn-group1">
-            <a href="productdashbaord.html" class="home-navlink button">
+            <a href="" class="home-navlink button" id="latestRecipeHyperlink">
               Explore the recipe
             </a>
           </div>
         </div>
         <img
-        alt="image23271449"
-        src="https://images.unsplash.com/photo-1662116765994-1e4200c43589?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDI1fHxzaGF3YXJtYXxlbnwwfHx8fDE2Njc5ODM1NTc&amp;ixlib=rb-4.0.3&amp;w=600"
-        class="home-image"
+        alt="image23271449" 
+        src="" style="width: 40%;"
+        class="home-image" id="latestRecipeImage"
         />
       </div>
     </div>
@@ -148,46 +152,73 @@
       </span>
     </div>
     <div class="home-cards-container">
-      <div class="category-card-category-card">
-        <img
-        alt="image"
-        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDF8fGJ1cmdlcnxlbnwwfHx8fDE2Njc5ODM4NDU&amp;ixlib=rb-4.0.3&amp;w=1500"
-        class="category-card-image"
-        />
-        <span class="category-card-text"><span>Burgers</span></span>
-      </div>
-      <div class="category-card-category-card">
-        <img
-        alt="image"
-        src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDN8fHBpenphfGVufDB8fHx8MTY2Nzk4Mzk5OQ&amp;ixlib=rb-4.0.3&amp;w=1500"
-        class="category-card-image"
-        />
-        <span class="category-card-text"><span>Pizzas</span></span>
-      </div>
-      <div class="category-card-category-card">
-        <img
-        alt="image"
-        src="https://images.unsplash.com/photo-1662116765994-1e4200c43589?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDI1fHxzaGF3YXJtYXxlbnwwfHx8fDE2Njc5ODM1NTc&amp;ixlib=rb-4.0.3&amp;w=1500"
-        class="category-card-image"
-        />
-        <span class="category-card-text"><span>Shawarma</span></span>
-      </div>
-      <div class="category-card-category-card">
-        <img
-        alt="image"
-        src="https://images.unsplash.com/photo-1553882299-9601a48ebe6a?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDEzfHxwdWRkaW5nfGVufDB8fHx8MTY2Nzk4NDA3Mg&amp;ixlib=rb-4.0.3&amp;w=1500"
-        class="category-card-image"
-        />
-        <span class="category-card-text"><span>Pudding</span></span>
-      </div>
-      <div class="category-card-category-card">
-        <img
-        alt="image"
-        src="https://images.unsplash.com/photo-1645432524571-0e469b22e43f?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE0fHxyb3RpfGVufDB8fHx8MTY2Nzk5MjEyOQ&amp;ixlib=rb-4.0.3&amp;w=1500"
-        class="category-card-image"
-        />
-        <span class="category-card-text"><span>Lankan</span></span>
-      </div>
+      
+      <a href="#" id="showAll">
+        <div class="category-card-category-card">
+          <img
+          alt="image"
+          src="https://thumbs.dreamstime.com/b/food-mix-set-11695104.jpg&amp;ixlib=rb-4.0.3&amp;w=1500"
+          class="category-card-image"
+          />
+          <span class="category-card-text"><span>Show All</span></span>
+        </div>
+      </a>
+      
+      <a href="#" id="catBurger">
+        <div class="category-card-category-card">
+          <img
+          alt="image"
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDF8fGJ1cmdlcnxlbnwwfHx8fDE2Njc5ODM4NDU&amp;ixlib=rb-4.0.3&amp;w=1500"
+          class="category-card-image"
+          />
+          <span class="category-card-text"><span>Burger</span></span>
+        </div>
+      </a>
+      
+      <a href="#" id="catPizza">
+        <div class="category-card-category-card">
+          <img
+          alt="image"
+          src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDN8fHBpenphfGVufDB8fHx8MTY2Nzk4Mzk5OQ&amp;ixlib=rb-4.0.3&amp;w=1500"
+          class="category-card-image"
+          />
+          <span class="category-card-text"><span>Pizza</span></span>
+        </div>
+      </a>
+      
+      <a href="#" id="catShawarma">
+        <div class="category-card-category-card">
+          <img
+          alt="image"
+          src="https://images.unsplash.com/photo-1662116765994-1e4200c43589?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDI1fHxzaGF3YXJtYXxlbnwwfHx8fDE2Njc5ODM1NTc&amp;ixlib=rb-4.0.3&amp;w=1500"
+          class="category-card-image"
+          />
+          <span class="category-card-text"><span>Shawarma</span></span>
+        </div>
+      </a>
+      
+      <a href="#" id="catPudding">
+        <div class="category-card-category-card">
+          <img
+          alt="image"
+          src="https://images.unsplash.com/photo-1553882299-9601a48ebe6a?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDEzfHxwdWRkaW5nfGVufDB8fHx8MTY2Nzk4NDA3Mg&amp;ixlib=rb-4.0.3&amp;w=1500"
+          class="category-card-image"
+          />
+          <span class="category-card-text"><span>Pudding</span></span>
+        </div>
+      </a>
+      
+      <a href="#" id="catLankan">
+        <div class="category-card-category-card">
+          <img
+          alt="image"
+          src="https://images.unsplash.com/photo-1645432524571-0e469b22e43f?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDE0fHxyb3RpfGVufDB8fHx8MTY2Nzk5MjEyOQ&amp;ixlib=rb-4.0.3&amp;w=1500"
+          class="category-card-image"
+          />
+          <span class="category-card-text"><span>Lankan</span></span>
+        </div>
+      </a>
+      
     </div>
   </div>
   <div class="section-container">
@@ -203,26 +234,7 @@
       <div class="" style="width:100%; display:flex; flex-wrap:wrap; align-items:center;" id="recipeCardsContainer">
         {{-- show recipe cards --}}
         
-        <div class="item-card-gallery-card item-card-root-class-name2">
-          <img
-          alt="image"
-          src=""
-          class="item-card-image"
-          />
-          <div class="item-card-container">
-            <h3 class="item-card-text">
-              <span>Pineapple Pizza</span>
-            </h3>
-            <div class="item-card-container2">
-              <span class="item-card-currency">
-                <span>Rs.</span>
-              </span>
-              <span class="item-card-value">
-                <span>1500</span>
-              </span>
-            </div>
-          </div>
-        </div>
+        
         
         
       </div>
@@ -269,25 +281,91 @@
       }
     });
     
-    function fetchHospital()
+    var publicUrl = "{{ url('/getRecipe') }}";
+    
+    //categorize links start
+    $('#catBurger').click(function(e){
+      e.preventDefault();
+      publicUrl = "{{ url('/getCategorizedRecipe/Burger') }}";
+    });
+    
+    $('#catPizza').click(function(e){
+      e.preventDefault();
+      publicUrl = "{{ url('/getCategorizedRecipe/Pizza') }}";
+    });
+    
+    $('#catShawarma').click(function(e){
+      e.preventDefault();
+      publicUrl = "{{ url('/getCategorizedRecipe/Shawarma') }}";
+    });
+    
+    $('#catPudding').click(function(e){
+      e.preventDefault();
+      publicUrl = "{{ url('/getCategorizedRecipe/Pudding') }}";
+    });
+    
+    $('#catLankan').click(function(e){
+      e.preventDefault();
+      publicUrl = "{{ url('/getCategorizedRecipe/Lankan') }}";
+    });
+    
+    $('#showAll').click(function(e){
+      e.preventDefault();
+      publicUrl = "{{ url('/getRecipe') }}";
+    });
+    //categorize end
+    
+    setInterval(function(){
+      getRecipe();
+      getLatestRecipe();
+    }, 1000);
+    
+    function getRecipe()
     {
       $.ajax({
         type:"GET",
-        url:"{{ url('/getRecipe') }}",
+        url:publicUrl,
         success:function(response){
           $('#recipeCardsContainer').html('');
           $.each(response.recipes,function(key,item){
-            $('#recipeCardsContainer').append('<tr>\
-              <td><b>'+hospital_no_str+'</b></td>\
-              <td>'+item.name+'</td>\
-              <td>'+item.landline+'</td>\
-              <td>\
-                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal" id="editModalOpen" value="'+item.id+'"><i class="fa-solid fa-pen-to-square"></i></button>\
-                <button class="btn btn-danger btn-sm" value="'+item.id+'" data-bs-toggle="modal" data-bs-target="#modal" id="deleteModalOpen"><i class="fa fa-trash"></i></button>\
-                <button class="btn btn-dark btn-sm" value="'+item.id+'" data-bs-toggle="modal" data-bs-target="#modal" id="viewModalOpen"><i class="fa fa-eye"></i></button>\
-              </td>\
-            </tr>\
+            
+            var urlGetSingleRecipe = '{{ url("/getSingleRecipe/:id") }}';
+            urlGetSingleRecipe = urlGetSingleRecipe.replace(':id', item.id);
+            
+            $('#recipeCardsContainer').append('<div class="item-card-gallery-card item-card-root-class-name2" style="text-align:center">\
+              <img alt="image" src="'+item.rec_photo+'" class="item-card-image"/>\
+              <div class="item-card-container">\
+                <h3 class="item-card-text"><span>'+item.rec_name+'</span></h3>\
+                <div class="item-card-container2"><span class="item-card-currency">\
+                  <span class="item-card-value">\
+                    <span> RS.'+item.rec_price+'</span><br>\
+                    <span><a href="'+urlGetSingleRecipe+'" style="color:green;"> See Details</a></span>\
+                  </span>\
+                </div>\
+              </div>\
+            </div>\
             ');
+          });
+        }
+      });
+    }
+    
+    function getLatestRecipe()
+    {
+      $.ajax({
+        type:"GET",
+        url: "{{ url('/getLatestRecipe') }}",
+        success:function(response){
+          $.each(response.recipes,function(key,item){
+            
+            var urlGetSingleRecipe = '{{ url("/getSingleRecipe/:id") }}';
+            urlGetSingleRecipe = urlGetSingleRecipe.replace(':id', item.id);
+            
+            $('#latestRecipeHeading').text(item.rec_name);
+            $('#latestRecipePrice').text('Rs.'+item.rec_price);
+            $('#latestRecipeHyperlink').attr("href",urlGetSingleRecipe);
+            $('#latestRecipeImage').attr("src",item.rec_photo);
+            
           });
         }
       });

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('rec_name');
             $table->string('rec_category')->nullable();
             $table->string('rec_tut')->nullable();
+            $table->string('rec_desc')->nullable();
             $table->unsignedBigInteger('admin_id');
             $table->timestamps();
         });

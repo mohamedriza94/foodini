@@ -16,5 +16,8 @@ class Order extends Model
         'orderStatus',
         'recipeNo',
         'userNo',
+        'orderQuantity',
+        'orderTotal',
+        'orderPrice',
     ];
 }

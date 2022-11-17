@@ -8,8 +8,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //recipe control routes
 Route::get('/recipe', [App\Http\Controllers\recipeController::class, 'index'])->name('recipe');
+Route::get('/recipeDetail', [App\Http\Controllers\recipeController::class, 'openRecipeDetail'])->name('recipeDetail');
 Route::post('/addRecipe', [App\Http\Controllers\recipeController::class, 'addRecipe']);
 Route::get('/getRecipe', [App\Http\Controllers\recipeController::class, 'getRecipe']);
+Route::get('/getCategorizedRecipe/{category}', [App\Http\Controllers\recipeController::class, 'getCategorizedRecipe']);
+Route::get('/getLatestRecipe', [App\Http\Controllers\recipeController::class, 'getLatestRecipe']);
 Route::put('/updateRecipe/{id}', [App\Http\Controllers\recipeController::class, 'updateRecipe']);
 Route::get('/deleteRecipe/{id}', [App\Http\Controllers\recipeController::class, 'deleteRecipe']);
 Route::get('/getSingleRecipe/{id}', [App\Http\Controllers\recipeController::class, 'getSingleRecipe']);
@@ -28,3 +31,7 @@ Route::get('/searchOrder/{input}', [App\Http\Controllers\orderController::class,
 //register user
 Route::get('/register', [App\Http\Controllers\Auth\registerController::class, 'index'])->name('register');
 Route::post('/registerUser', [App\Http\Controllers\Auth\registerController::class, 'registerUser']);
+
+//explore routes
+Route::get('/explore', [App\Http\Controllers\recipeController::class, 'explorePage'])->name('explore');
+Route::get('/searchRecipe/{input}', [App\Http\Controllers\recipeController::class, 'searchRecipe']);

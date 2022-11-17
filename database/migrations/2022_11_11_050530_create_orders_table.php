@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('orderStatus');
             $table->unsignedBigInteger('recipeNo');
             $table->unsignedBigInteger('userNo');
+            $table->string('orderQuantity');
+            $table->string('orderTotal');
+            $table->string('orderPrice');
             $table->timestamps();
         });
     }

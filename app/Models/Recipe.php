@@ -17,5 +17,6 @@ class Recipe extends Model
         'rec_price',
         'rec_name',
         'admin_id',
+        'rec_desc',
     ];
 }

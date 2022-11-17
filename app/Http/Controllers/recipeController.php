@@ -15,6 +15,11 @@ class recipeController extends Controller
         return view('admin.dashboard.recipe');
     }
     
+    public function explorePage()
+    {
+        return view('explore');
+    }
+    
     public function addRecipe(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -56,6 +61,30 @@ class recipeController extends Controller
         ]);
     }
     
+    public function getCategorizedRecipe($category)
+    {
+        $recipes = Recipe::where('rec_category','=', $category)->orderBy('id', 'DESC')->get();
+        return response()->json([
+            'recipes'=>$recipes,
+        ]);
+    }
+    
+    public function searchRecipe($input)
+    {
+        $recipes = Recipe::Where('rec_name','LIKE','%'.$input.'%')->orderBy('id', 'DESC')->get();
+        return response()->json([
+            'recipes'=>$recipes,
+        ]);
+    }
+    
+    public function getLatestRecipe()
+    {
+        $recipes = Recipe::orderBy('id', 'DESC')->get();
+        return response()->json([
+            'recipes'=>$recipes,
+        ]);
+    }
+    
     public function updateRecipe(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
@@ -88,12 +117,12 @@ class recipeController extends Controller
                     'status'=>200
                 ]);
             }
-        }
-        else
-        {
-            return response()->json([
-                'status'=>300
-            ]);
+            else
+            {
+                return response()->json([
+                    'status'=>300
+                ]);
+            }
         }
     }
     
@@ -116,16 +145,13 @@ class recipeController extends Controller
             ]);
         }
     }
-
+    
     public function getSingleRecipe($id)
     {
         $recipes = Recipe::find($id);
         if($recipes)
         {
-            return response()->json([
-                'status'=>200,
-                'recipes'=>$recipes,
-            ]);
+            return view('recipeDetail')->with('recipes', $recipes);
         }
         else
         {
@@ -133,13 +159,5 @@ class recipeController extends Controller
                 'status'=>400,
             ]);
         }
-    }
-
-    public function searchRecipe($input)
-    {
-        $recipes = Recipe::Where('rec_name','LIKE','%'.$input.'%')->orderBy('id', 'DESC')->get();
-        return response()->json([
-            'recipes'=>$recipes,
-        ]);
     }
 }
