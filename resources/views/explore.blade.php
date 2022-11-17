@@ -66,11 +66,6 @@
         >
         <span>Explore</span>
       </a>
-      <svg viewBox="0 0 1024 1024" class="navigation-links-icon">
-        <path
-        d="M726 768q34 0 59 26t25 60-25 59-59 25-60-25-26-59 26-60 60-26zM42 86h140l40 84h632q18 0 30 13t12 31q0 2-6 20l-152 276q-24 44-74 44h-318l-38 70-2 6q0 10 10 10h494v86h-512q-34 0-59-26t-25-60q0-20 10-40l58-106-154-324h-86v-84zM298 768q34 0 60 26t26 60-26 59-60 25-59-25-25-59 25-60 59-26z"
-        ></path>
-      </svg>
     </nav>
     <span class="productdashbaord-logo-center navbar-logo-title">
       FOODINI&nbsp;
@@ -89,6 +84,23 @@
       Register
     </a>
     @else
+
+    <a href="{{ route('cart') }}">
+      <svg viewBox="0 0 1024 1024" class="navigation-links-icon">
+        <path
+        d="M726 768q34 0 59 26t25 60-25 59-59 25-60-25-26-59 26-60 60-26zM42 86h140l40 84h632q18 0 30 13t12 31q0 2-6 20l-152 276q-24 44-74 44h-318l-38 70-2 6q0 10 10 10h494v86h-512q-34 0-59-26t-25-60q0-20 10-40l58-106-154-324h-86v-84zM298 768q34 0 60 26t26 60-26 59-60 25-59-25-25-59 25-60 59-26z"
+        ></path>
+      </svg>
+    </a>
+    &nbsp;
+&nbsp;
+    <a
+      href="{{ route('userDash') }}"
+      id=""
+      class="navigation-links-navlink3"
+      >
+      <span>Dashbord</span>
+    </a>
     
     <a id="loginbtn" class="productdashbaord-login button" href="{{ route('logout') }}"
     onclick="event.preventDefault();

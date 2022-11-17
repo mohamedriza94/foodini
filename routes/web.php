@@ -23,6 +23,7 @@ Route::get('/searchRecipe/{input}', [App\Http\Controllers\recipeController::clas
 Route::get('/order', [App\Http\Controllers\orderController::class, 'index'])->name('order');
 Route::post('/placeOrder', [App\Http\Controllers\orderController::class, 'placeOrder']);
 Route::get('/getOrder', [App\Http\Controllers\orderController::class, 'getOrder']);
+Route::get('/getFilteredOrder/{filter}', [App\Http\Controllers\orderController::class, 'getFilteredOrder']);
 Route::put('/updateOrderStatus/{id}', [App\Http\Controllers\orderController::class, 'updateOrderStatus']);
 Route::get('/getSingleOrder/{id}', [App\Http\Controllers\orderController::class, 'getSingleOrder']);
 Route::get('/searchOrder/{input}', [App\Http\Controllers\orderController::class, 'searchOrder']);
@@ -35,3 +36,9 @@ Route::post('/registerUser', [App\Http\Controllers\Auth\registerController::clas
 //explore routes
 Route::get('/explore', [App\Http\Controllers\recipeController::class, 'explorePage'])->name('explore');
 Route::get('/searchRecipe/{input}', [App\Http\Controllers\recipeController::class, 'searchRecipe']);
+
+//cart routes
+Route::get('/cart', [App\Http\Controllers\cartController::class, 'index'])->name('cart');
+
+//user dashboard routes
+Route::get('/dashboard', [App\Http\Controllers\userController::class, 'index'])->name('userDash');

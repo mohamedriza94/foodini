@@ -67,7 +67,15 @@ class orderController extends Controller
 
     public function getOrder()
     {
-        $orders = Order::orderBy('id', 'DESC')->get();
+        $orders = Order::where('userNo','=',auth()->user()->id)->orderBy('id', 'DESC')->get();
+        return response()->json([
+            'orders'=>$orders,
+        ]);
+    }
+
+    public function getFilteredOrder($filter)
+    {
+        $orders = Order::where('userNo','=',auth()->user()->id)->where('orderStatus','=',$filter)->orderBy('id', 'DESC')->get();
         return response()->json([
             'orders'=>$orders,
         ]);
