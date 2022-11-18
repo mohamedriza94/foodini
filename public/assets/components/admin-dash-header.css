@@ -1,0 +1,41 @@
+.admin-dash-header-container {
+  flex: 0 0 auto;
+  width: 877px;
+  height: 95px;
+  display: flex;
+  position: relative;
+  align-self: center;
+  align-items: center;
+  justify-content: flex-end;
+}
+.admin-dash-header-container1 {
+  flex: 0 0 auto;
+  width: 183px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.admin-dash-header-container2 {
+  flex: 0 0 auto;
+  width: 182px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.admin-dash-header-container3 {
+  flex: 0 0 auto;
+  width: 218px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 224px;
+  flex-direction: column;
+  justify-content: center;
+}
+.admin-dash-header-root-class-name1 {
+  margin-right: 150px;
+}

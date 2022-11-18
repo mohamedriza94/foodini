@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class userController extends Controller
 {
@@ -24,5 +25,21 @@ class userController extends Controller
     public function index()
     {
         return view('dashboard');
+    }
+    
+    public function getUsers()
+    {
+        $users = User::orderBy('id', 'DESC')->get();
+        return response()->json([
+            'users'=>$users,
+        ]);
+    }
+    
+    public function getSingleUser($id)
+    {
+        $users = User::where('id','=',$id)->get();
+        return response()->json([
+            'users'=>$users,
+        ]);
     }
 }

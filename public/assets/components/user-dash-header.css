@@ -1,0 +1,26 @@
+.user-dash-header-container {
+  flex: 0 0 auto;
+  width: 850px;
+  height: 69px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: var(--dl-color-pallet-green);
+}
+.user-dash-header-container1 {
+  width: 50%;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user-dash-header-container2 {
+  width: 50%;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

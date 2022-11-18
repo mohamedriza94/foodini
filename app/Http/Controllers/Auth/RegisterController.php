@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class registerController extends Controller
 {   
@@ -41,7 +42,7 @@ class registerController extends Controller
             $users->phoneNumber = $request->input('phoneNumber');
             $users->name = $request->input('name');
             $users->email = $request->input('email');
-            $users->password = $request->input('password');
+            $users->password = Hash::make($request->input('password'));
             $users->save();
             
             return response()->json([

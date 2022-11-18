@@ -214,7 +214,7 @@
           src="https://images.unsplash.com/photo-1553882299-9601a48ebe6a?ixid=Mnw5MTMyMXwwfDF8c2VhcmNofDEzfHxwdWRkaW5nfGVufDB8fHx8MTY2Nzk4NDA3Mg&amp;ixlib=rb-4.0.3&amp;w=1500"
           class="category-card-image"
           />
-          <span class="category-card-text"><span>Pudding</span></span>
+          <span class="category-card-text"><span>Dessert</span></span>
         </div>
       </a>
       
@@ -311,7 +311,7 @@
     
     $('#catPudding').click(function(e){
       e.preventDefault();
-      publicUrl = "{{ url('/getCategorizedRecipe/Pudding') }}";
+      publicUrl = "{{ url('/getCategorizedRecipe/Dessert') }}";
     });
     
     $('#catLankan').click(function(e){

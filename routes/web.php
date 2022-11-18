@@ -42,3 +42,12 @@ Route::get('/cart', [App\Http\Controllers\cartController::class, 'index'])->name
 
 //user dashboard routes
 Route::get('/dashboard', [App\Http\Controllers\userController::class, 'index'])->name('userDash');
+Route::post('/addToCart', [App\Http\Controllers\cartController::class, 'addToCart']);
+Route::get('/getCart', [App\Http\Controllers\cartController::class, 'getCart']);
+Route::get('/getSingleCart/{id}', [App\Http\Controllers\cartController::class, 'getSingleCart']);
+Route::get('/deleteCartItem/{id}', [App\Http\Controllers\cartController::class, 'deleteCartItem']);
+
+//administrator routes
+Route::get('/getAllOrders', [App\Http\Controllers\orderController::class, 'getAllOrders']);
+Route::get('/getAllClients', [App\Http\Controllers\orderController::class, 'getAllClients']);
+Route::get('/getSingleClient/{id}', [App\Http\Controllers\orderController::class, 'getSingleClient']);

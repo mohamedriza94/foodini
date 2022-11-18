@@ -257,6 +257,43 @@
         }
       });
     });
+    
+    $(document).on('click','#btnAddToCart',function(e){
+      e.preventDefault();
+      var recipeNo = $('#recipeId').val();
+      var quantity = $('#orderQuantity').val();
+      var price = $('#orderPrice').val();
+      
+      $('#btnAddToCart').text('Adding...');
+      
+      var data = {
+        'recipeNo' : recipeNo,
+        'quantity' : quantity,
+        'price' : price
+      }
+      
+      var url = '{{ url("/addToCart") }}';
+      $.ajax({
+        type:"POST",
+        url:url,
+        data:data,
+        dataType:"json",
+        success:function(response){
+          if(response.status==200)
+          {
+            $('#btnAddToCart').text('Added');
+            
+            setTimeout(function(){
+              $('#btnAddToCart').text('Add To Cart');
+            }, 3000);
+          }
+          else
+          {
+            alert('Some Error. Please try again!')
+          }
+        }
+      });
+    });
   });
   
 </script>

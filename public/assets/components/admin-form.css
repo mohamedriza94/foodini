@@ -1,0 +1,155 @@
+.admin-form-container {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 538px;
+  display: flex;
+  position: relative;
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+}
+.admin-form-recipe-form {
+  width: 33.3%;
+  height: 100%;
+  padding: var(--dl-space-space-oneandhalfunits);
+  align-self: center;
+}
+.admin-form-text {
+  font-size: 25px;
+  font-style: italic;
+  margin-top: 0px;
+  font-weight: 400;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.admin-form-container1 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 441px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  flex-direction: column;
+  justify-content: center;
+  background-color: #67a29a;
+}
+.admin-form-container2 {
+  width: auto;
+  height: 364px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.admin-form-textinput {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-select {
+  width: 180px;
+  height: 31px;
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  padding-left: var(--dl-space-space-halfunit);
+  border-radius: var(--dl-radius-radius-radius8);
+}
+.admin-form-textinput1 {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-textinput2 {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-text1 {
+  top: 282px;
+  left: 65px;
+  position: absolute;
+}
+.admin-form-textinput3 {
+  color: var(--dl-color-gray-500);
+  width: 278px;
+  align-self: center;
+  margin-top: var(--dl-space-space-threeunits);
+  margin-left: var(--dl-space-space-unit);
+  margin-right: var(--dl-space-space-unit);
+  border-radius: var(--dl-radius-radius-radius8);
+  margin-bottom: var(--dl-space-space-unit);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-users-form {
+  width: 33.3%;
+  height: 100%;
+  padding: var(--dl-space-space-oneandhalfunits);
+  align-self: center;
+}
+.admin-form-text2 {
+  font-size: 25px;
+  font-style: italic;
+  margin-top: 0px;
+  font-weight: 400;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: var(--dl-space-space-twounits);
+}
+.admin-form-container3 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 441px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  justify-content: center;
+  background-color: #67a29a;
+}
+.admin-form-container4 {
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.admin-form-textinput4 {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-textinput5 {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-textinput6 {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-textinput7 {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}
+.admin-form-textinput8 {
+  color: var(--dl-color-gray-500);
+  margin: var(--dl-space-space-unit);
+  align-self: center;
+  border-radius: var(--dl-radius-radius-radius8);
+  background-color: var(--dl-color-pallet-green);
+}

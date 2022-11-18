@@ -224,7 +224,7 @@
       }
       else if(combo.selectedIndex == 5)
       {
-        publicUrl = "{{ url('/getCategorizedRecipe/Pudding') }}";
+        publicUrl = "{{ url('/getCategorizedRecipe/Dessert') }}";
       }
       else
       {

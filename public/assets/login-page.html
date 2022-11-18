@@ -38,49 +38,37 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&amp;display=swap"
       data-tag="font"
     />
-    <link rel="stylesheet" href="{{ asset('assets/style.css') }}" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div>
-      <link href="{{ asset('assets/login-page.css') }}" rel="stylesheet" />
+      <link href="./login-page.css" rel="stylesheet" />
 
       <div class="login-page-container">
-        <form class="login-page-form" method="POST" action="{{ route('admin.login') }}">
-           @csrf
+        <form class="login-page-form">
           <div class="login-page-container1">
             <div class="login-page-container2">
               <span class="login-page-text">
                 <span>Email Address</span>
                 <br />
               </span>
-
-              <input id="emailtext" type="email" class="login-page-textinput input @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-              
+              <input
+                type="email"
+                id="emailtext"
+                class="login-page-textinput input"
+              />
             </div>
-
-            <!-- error message container -->
-            <div class="login-page-container2">
-              @error('email')
-              <label style="color:red">{{ $message }}</label>
-                                @enderror
-            </div>
-
-
             <div class="login-page-container3">
               <span class="login-page-text03">
                 <span>Password</span>
                 <br />
               </span>
-              <input id="passwordtext" type="password" class="login-page-textinput1 input @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+              <input
+                type="password"
+                id="passwordtext"
+                class="login-page-textinput1 input"
+              />
             </div>
-
-            <div class="login-page-container4">
-              @error('password')
-              <label style="color:red">{{ $message }}</label>
-                                @enderror
-            </div>
-
-
             <button class="login-page-button button">
               <span class="login-page-text06">
                 <span>Login</span>
@@ -89,7 +77,7 @@
             </button>
             <span class="login-page-text09">
               <span>Don't have an account?</span>
-              <a href="{{ route('admin.register') }}" class="login-page-navlink">
+              <a href="register-page.html" class="login-page-navlink">
                 Register here
               </a>
             </span>
@@ -98,5 +86,6 @@
         </form>
       </div>
     </div>
+    <script src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
   </body>
 </html>

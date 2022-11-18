@@ -53,6 +53,10 @@
   padding-bottom: 12px;
   text-decoration: none;
 }
+button{
+  
+  cursor:pointer;
+}
 .button:hover {
   color: var(--dl-color-gray-white);
   border-color: var(--dl-color-pallet-yellow);

@@ -23,12 +23,10 @@ class recipeController extends Controller
     public function addRecipe(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            
-            'rec_id' => ['required','string','max:10','unique:recipes'],
-            'rec_price' => ['required','numeric'],
-            'rec_name' => ['required'],
-            'admin_id' => ['required'],
-            
+            'price' => ['required','numeric'],
+            'name' => ['required'],
+            'category' => ['required'],
+            'photo' => ['required','image'],
         ]); //validate all the inputs
         
         if($validator->fails())
@@ -40,11 +38,21 @@ class recipeController extends Controller
         }
         else
         {
+            $recId = rand(115000,995000);
+
             $recipes = new Recipe;        
-            $recipes->rec_id = $request->input('rec_id');
-            $recipes->rec_price = $request->input('rec_price');
-            $recipes->rec_name = $request->input('rec_name');
-            $recipes->admin_id = $request->input('admin_id');
+            $recipes->rec_id = $recId;
+            $recipes->rec_price = $request->input('price');
+            $recipes->rec_photo = $request->input('photo');
+
+            $photoPath = request('photo')->store('recipes','public'); //get image path
+            $recipes->rec_photo = '/'.'storage/'.$photoPath;
+
+            $recipes->rec_category = $request->input('category');
+            $recipes->rec_tut = $request->input('rec_tut');
+            $recipes->rec_name = $request->input('name');
+            $recipes->rec_desc = $request->input('rec_desc');
+            $recipes->admin_id = auth()->guard('admin')->user()->id;
             $recipes->save();
             
             return response()->json([
@@ -79,7 +87,7 @@ class recipeController extends Controller
     
     public function getLatestRecipe()
     {
-        $recipes = Recipe::orderBy('id', 'DESC')->get();
+        $recipes = Recipe::orderBy('id', 'ASC')->get();
         return response()->json([
             'recipes'=>$recipes,
         ]);

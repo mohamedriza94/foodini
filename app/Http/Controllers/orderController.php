@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Recipe;
 use App\Models\Order;
+use App\Models\publicUser;
+use App\Models\cart;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
@@ -17,7 +19,7 @@ class orderController extends Controller
     {
         return view('admin.dashboard.order');
     }
-
+    
     public function placeOrder(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -36,12 +38,12 @@ class orderController extends Controller
         }
         else
         {
-
+            
             $orderTotal = $request->input('orderQuantity')*$request->input('orderPrice');
-
+            
             //variable containing order status
             $orderStatus = 'placed';
-
+            
             $orders = new Order;        
             $orders->order_id = $request->input('order_id');
             $orders->orderStatus = $orderStatus;
@@ -51,12 +53,19 @@ class orderController extends Controller
             $orders->recipeNo = $request->input('recipeNo');
             $orders->userNo = auth()->user()->id;
             $orders->save();
-
+            
             $recipe_no = $request->input('recipeNo');
             $orderNumber = $request->input('order_id');
             $orderPrice = $request->input('orderPrice');
             $orderQuantity = $request->input('orderQuantity');
-
+            
+            if($request->input('cartId')!='')
+            {
+                $carts = Cart::find($request->input('cartId'));
+                $carts->status = 'ordered';
+                $carts->update();
+            }
+            
             Mail::to(auth()->user()->email)->send(new orderPlacementMail($orderNumber,$orderTotal,$orderQuantity,$orderPrice,$recipe_no));
             
             return response()->json([
@@ -64,7 +73,7 @@ class orderController extends Controller
             ]);
         }
     }
-
+    
     public function getOrder()
     {
         $orders = Order::where('userNo','=',auth()->user()->id)->orderBy('id', 'DESC')->get();
@@ -72,7 +81,42 @@ class orderController extends Controller
             'orders'=>$orders,
         ]);
     }
-
+    
+    public function getAllClients()
+    {
+        $users = publicUser::orderBy('id', 'DESC')->get();
+        return response()->json([
+            'users'=>$users,
+        ]);
+    }
+    
+    public function getSingleClient($id)
+    {
+        $users = publicUser::where('id','=',$id)->get();
+        if($users)
+        {
+            return response()->json([
+                'status'=>200,
+                'users'=>$users,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=>400,
+            ]);
+        }
+    }
+    
+    public function getAllOrders()
+    {
+        $orders = Order::orderBy('id', 'DESC')->get();
+        return response()->json([
+            'orders'=>$orders,
+        ]);
+    }
+    
+    
     public function getFilteredOrder($filter)
     {
         $orders = Order::where('userNo','=',auth()->user()->id)->where('orderStatus','=',$filter)->orderBy('id', 'DESC')->get();
@@ -80,32 +124,14 @@ class orderController extends Controller
             'orders'=>$orders,
         ]);
     }
-
+    
     public function updateOrderStatus(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            
-            'orderStatus' => ['required','string'],
-            
-        ]); //validate all the inputs
-        
-        if($validator->fails())
-        {
-            return response()->json([
-                'status'=>400,
-                'errors'=>$validator->messages()
-            ]);
-        }
-        else
-        {
-            $orders = orders::where('id', $id)->update(['orderStatus' => $request->input('orderStatus')]);
-                
-            return response()->json([
-                'status'=>200
-            ]);
-        }
+        $orders = Order::find($id);
+        $orders->orderStatus = $request->input('orderStatus');
+        $orders->update();
     }
-
+    
     public function searchOrder($input)
     {
         $orders = Order::Where('order_id','LIKE','%'.$input.'%')->orderBy('id', 'DESC')->get();
